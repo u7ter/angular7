@@ -2,13 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { Routing } from './app.routing';
+import { routing } from './app.routing';
 
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
+import { AdminComponent } from './admin/admin.component';
+import { FooterComponent } from './footer/footer.component';
+import {EnvServiceProvider} from './service/env.service.provider';
 
 @NgModule({
   declarations: [
@@ -16,14 +19,16 @@ import {ReactiveFormsModule} from '@angular/forms';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
+    AdminComponent,
+    FooterComponent,
 ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
-    Routing
+    routing
   ],
-  providers: [],
+  providers: [EnvServiceProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
