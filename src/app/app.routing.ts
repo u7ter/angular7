@@ -1,11 +1,12 @@
-import { Routes, RouterModule } from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 
-import { HomeComponent } from './home/home.component';
-import { AdminComponent } from './admin/admin.component';
-import { LoginComponent } from './login/login.component';
-import { AuthGuard } from './guards/auth.guard';
-import { Role } from './models/role';
+import {HomeComponent} from './home/home.component';
+import {AdminComponent} from './admin/admin.component';
+import {LoginComponent} from './login/login.component';
+import {AuthGuard} from './guards/auth.guard';
+import {Role} from './models/role';
 import {RegisterComponent} from './register/register.component';
+import {ProfileComponent} from './user/profile/profile.component';
 
 const appRoutes: Routes = [
   {
@@ -18,6 +19,11 @@ const appRoutes: Routes = [
     component: AdminComponent,
     canActivate: [AuthGuard],
     data: { roles: [Role.Admin] }
+  },
+  {
+    path: 'user-profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',

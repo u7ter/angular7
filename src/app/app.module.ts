@@ -12,6 +12,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { AdminComponent } from './admin/admin.component';
 import { FooterComponent } from './footer/footer.component';
 import {EnvServiceProvider} from './service/env.service.provider';
+import { ProfileComponent } from './user/profile/profile.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import {EnvServiceProvider} from './service/env.service.provider';
     HomeComponent,
     AdminComponent,
     FooterComponent,
+    ProfileComponent,
+    HeaderComponent,
 ],
   imports: [
     BrowserModule,

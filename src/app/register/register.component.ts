@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthenticationService} from '../service/authentication.service';
+import {CustomValidator} from '../validators/customValidator';
+
 
 @Component({
   selector: 'app-register',
@@ -35,7 +37,10 @@ export class RegisterComponent implements OnInit {
       username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
-      confirmPassword: ['', Validators.required],
+      confirmPassword: ['', [Validators.required]],
+    },
+      {
+      validator: CustomValidator.matchPassword
     });
   }
 
