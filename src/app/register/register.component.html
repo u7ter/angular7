@@ -1,3 +1,60 @@
-<p>
-  register works!
-</p>
+<div class="text-center">
+
+  <form class="form-register" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <img class="mb-4" src="https://angular.io/assets/images/logos/angular/angular.svg" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Registration</h1>
+    <div class="alert alert-danger" role="alert" *ngIf="error">
+      {{error}}
+    </div>
+    <label for="username" class="sr-only">Username</label>
+
+    <input type="text"
+           formControlName="username"
+           class="form-control"
+           id="username"
+           placeholder="Username"
+           [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+      <div *ngIf="f.username.errors.required">Username is required</div>
+    </div>
+
+    <label for="inputEmail" class="sr-only">Email</label>
+    <input type="email"
+           formControlName="email"
+           class="form-control"
+           id="inputEmail"
+           placeholder="Email"
+           [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+      <div *ngIf="f.email.errors">Email is required</div>
+    </div>
+
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input id="inputPassword"
+           type="password"
+           formControlName="password"
+           class="form-control"
+           placeholder="Password"
+           [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+
+    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+      <div *ngIf="f.password.errors">Password is required</div>
+    </div>
+
+    <label for="inputconfirmPassword" class="sr-only">Confirm Password</label>
+    <input id="inputconfirmPassword"
+           type="password"
+           formControlName="confirmPassword"
+           class="form-control"
+           placeholder="Confirm Password"
+           [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+      <div *ngIf="f.confirmPassword.errors">Confirm Password is required</div>
+    </div>
+
+    <button [disabled]="loading" class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+    <div class="checkbox mb-3"> or
+      <a routerLink="/login">login</a>
+    </div>
+  </form>
+</div>
